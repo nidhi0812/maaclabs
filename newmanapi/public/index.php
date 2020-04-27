@@ -8,7 +8,7 @@ require '../src/config/db.php';
 require 'src/Token.php';
 use \Psr\Http\Message\ServerRequestInterface as Request;
 
-print_r($_SERVER['HTTP_ORIGIN']);
+print_r($_SERVER);
 if (isset($_SERVER['HTTP_ORIGIN'])) {
     // should do a check here to match $_SERVER['HTTP_ORIGIN'] to a
     // whitelist of safe domains
