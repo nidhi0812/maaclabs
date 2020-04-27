@@ -1,15 +1,15 @@
 <?php
     class db{
         // Properties 
-        public $dbhost = '35.197.137.200';
+        public $dbhost = '34.87.91.62';
         public $dbuser = 'root';
-        public $dbpass = 'MNCrgo5in2rGDNpc';
+        public $dbpass = 'nidhi5416';
         public $dbname = 'newman';
     
     public function connect(){
-        $dbhost = '35.197.137.200';
+        $dbhost = '34.87.91.62';
         $dbuser = 'root';
-        $dbpass = 'MNCrgo5in2rGDNpc';
+        $dbpass = 'nidhi5416';
         $dbname = 'newman';
     
         $mysql_connect_str = "mysql:host=".$dbhost.";dbname=".$dbname.";";
