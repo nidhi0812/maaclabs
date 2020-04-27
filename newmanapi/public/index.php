@@ -8,6 +8,15 @@ require '../src/config/db.php';
 require 'src/Token.php';
 use \Psr\Http\Message\ServerRequestInterface as Request;
 
+print_r($_SERVER['HTTP_ORIGIN']);
+if (isset($_SERVER['HTTP_ORIGIN'])) {
+    // should do a check here to match $_SERVER['HTTP_ORIGIN'] to a
+    // whitelist of safe domains
+    header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+    header('Access-Control-Allow-Credentials: true');
+    header('Access-Control-Max-Age: 86400');    // cache for 1 day
+}
+
 $app = new \Slim\App;
 $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
     $name = $args['name'];
