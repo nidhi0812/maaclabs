@@ -75,7 +75,7 @@ newmanApp.config(['jwtInterceptorProvider', '$httpProvider', 'angularAuth0Provid
         domain: 'gym-genhex.auth0.com',
         responseType: 'token id_token',
         audience: 'https://gym-genhex.auth0.com/userinfo',
-        redirectUri: 'http://localhost:81/newman/public/user/',
+        redirectUri: 'http://localhost:81/user/',
         scope: 'openid'
     });
 }]);
