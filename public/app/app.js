@@ -75,7 +75,7 @@ newmanApp.config(['jwtInterceptorProvider', '$httpProvider', 'angularAuth0Provid
         domain: 'gym-genhex.auth0.com',
         responseType: 'token id_token',
         audience: 'https://gym-genhex.auth0.com/userinfo',
-        redirectUri: 'http://localhost:81/user/',
+        redirectUri: 'http://34.87.91.62:81/user/',
         scope: 'openid'
     });
 }]);
@@ -187,7 +187,7 @@ newmanApp.controller('AuthCtrl', ['$scope', "$state", 'GoogleSignin', '$http', '
     $scope.loginmanual = function() {
         $http({
             method: 'POST',
-            url: 'http://localhost:81/users/login',
+            url: 'http://34.87.91.62:81/users/login',
             data: {
                 "email": $scope.email,
                 "password": $scope.password,
@@ -364,7 +364,7 @@ newmanApp.controller('workoutsController', ['$scope', '$http', '$window', functi
         $scope.loadworkouts = function() {
             $http({
                 method: 'GET',
-                url: 'http://localhost:81/workouts/getworkouts',
+                url: 'http://34.87.91.62:81/workouts/getworkouts',
             }).then(function successCallback(response) {
                 for (i = 0; i < response.data.length; i++) {
                     response.data[i].workoutdays = $.parseJSON(response.data[i].workoutdays);
@@ -376,7 +376,7 @@ newmanApp.controller('workoutsController', ['$scope', '$http', '$window', functi
             });
             $http({
                 method: 'GET',
-                url: 'http://localhost:81/workouts/getworkoutgroups',
+                url: 'http://34.87.91.62:81/workouts/getworkoutgroups',
             }).then(function successCallback(response) {
                 $scope.workoutg = response.data;
                 console.log(response)
@@ -428,7 +428,7 @@ newmanApp.controller('recipesController', ['$scope', '$http', function($scope, $
     $scope.loadrecipes = function() {
         $http({
             method: 'GET',
-            url: 'http://localhost:81/recipes/getrecipes',
+            url: 'http://34.87.91.62:81/recipes/getrecipes',
         }).then(function successCallback(response) {
             for (i = 0; i < response.data.length; i++) {
                 response.data[i].ingredients = $.parseJSON(response.data[i].ingredients);
@@ -524,7 +524,7 @@ newmanApp.controller('trainersController', ['$scope', '$http', function($scope, 
     $scope.loadtrainers = function() {
         $http({
             method: 'GET',
-            url: 'http://localhost:81/trainers/getAll',
+            url: 'http://34.87.91.62:81/trainers/getAll',
         }).then(function successCallback(response) {
 
             $scope.trainers = response.data.user;
@@ -543,7 +543,7 @@ newmanApp.controller('exercisesController', ['$state', '$scope', '$routeParams',
     $scope.loadexercises = function() {
         $http({
             method: 'GET',
-            url: 'http://localhost:81/exercises/getexercises',
+            url: 'http://34.87.91.62:81/exercises/getexercises',
         }).then(function successCallback(response) {
 
             $scope.exercises = response.data;
@@ -562,7 +562,7 @@ newmanApp.controller('Controllersignup', ['$state', '$scope', '$routeParams', '$
     $scope.signup = function() {
         $http({
             method: 'POST',
-            url: 'http://localhost:81/users/signup',
+            url: 'http://34.87.91.62:81/users/signup',
             data: {
                 "name": $scope.name,
                 "email": $scope.email,
@@ -591,7 +591,7 @@ newmanApp.controller('navbar', ['$state', '$scope', '$routeParams', '$http', '$s
     $scope.checkAuth = function() {
         $http({
             method: 'POST',
-            url: 'http://localhost:81/users/authenticate',
+            url: 'http://34.87.91.62:81/users/authenticate',
             data: {
                 "token": localStorage.getItem('access_token')
             }
@@ -629,7 +629,7 @@ newmanApp.controller('SingleWorkout', ['$state', '$scope', '$routeParams', '$htt
     $scope.loadworkouts = function() {
         $http({
             method: 'GET',
-            url: 'http://localhost:81/workouts/getworkout/' + $scope.id,
+            url: 'http://34.87.91.62:81/workouts/getworkout/' + $scope.id,
         }).then(function successCallback(response) {
             response.data[0].workoutdays = $.parseJSON(response.data[0].workoutdays);
             $scope.workout = response.data;
@@ -655,7 +655,7 @@ newmanApp.controller('SingleRecipe', ['$state', '$scope', '$routeParams', '$http
     $scope.loadrecipe = function() {
         $http({
             method: 'GET',
-            url: 'http://localhost:81/recipes/getrecipe/' + $scope.id,
+            url: 'http://34.87.91.62:81/recipes/getrecipe/' + $scope.id,
         }).then(function successCallback(response) {
             console.log(response)
             response.data.recipe[0].ingredients = $.parseJSON(response.data.recipe[0].ingredients);
@@ -690,7 +690,7 @@ newmanApp.controller('SingleTrainer', ['$state', '$scope', '$routeParams', '$htt
     $scope.loadtrainers = function() {
         $http({
             method: 'POST',
-            url: 'http://localhost:81/users/authenticate',
+            url: 'http://34.87.91.62:81/users/authenticate',
             data: {
                 "token": localStorage.getItem('access_token')
             }
@@ -712,7 +712,7 @@ newmanApp.controller('SingleTrainer', ['$state', '$scope', '$routeParams', '$htt
         });
         $http({
             method: 'GET',
-            url: 'http://localhost:81/trainers/getAllWhere/' + $scope.id,
+            url: 'http://34.87.91.62:81/trainers/getAllWhere/' + $scope.id,
         }).then(function successCallback(response) {
 
 
@@ -743,7 +743,7 @@ newmanApp.controller('SingleTrainer', ['$state', '$scope', '$routeParams', '$htt
     $scope.updateTrainer = function() {
         $http({
             method: 'POST',
-            url: 'http://localhost:81/users/trainer/adminUpdate',
+            url: 'http://34.87.91.62:81/users/trainer/adminUpdate',
             data: {
                 "token": localStorage.getItem('access_token'),
                 "price": $scope.trainer.price,
@@ -774,7 +774,7 @@ newmanApp.controller('SingleExercise', ['$state', '$scope', '$routeParams', '$ht
     $scope.loadexercises = function() {
         $http({
             method: 'GET',
-            url: 'http://localhost:81/exercises/getexercise/' + $scope.id,
+            url: 'http://34.87.91.62:81/exercises/getexercise/' + $scope.id,
         }).then(function successCallback(response) {
             $scope.exercise = response.data;
             $scope.description = $sce.trustAsHtml($scope.exercise.description);
